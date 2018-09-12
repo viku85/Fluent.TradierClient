@@ -9,39 +9,39 @@ namespace Fluent.TradierClient.RequestBuilder.HistoricalPricings.HistoricalPrici
     public class TradierHistoricalPricing
     {
         /// <summary>
-        /// Closing price for the requested interval.
+        /// Gets or sets closing price for the requested interval.
         /// </summary>
         [JsonProperty("close")]
-        public decimal Close;
+        public decimal Close { get; set; }
 
         /// <summary>
-        /// High price for the requested interval.
+        /// Gets or sets high price for the requested interval.
         /// </summary>
         [JsonProperty("high")]
-        public decimal High;
+        public decimal High { get; set; }
 
         /// <summary>
-        /// Low price for the requested interval.
+        /// Gets or sets low price for the requested interval.
         /// </summary>
         [JsonProperty("low")]
-        public decimal Low;
+        public decimal Low { get; set; }
 
         /// <summary>
-        /// Opening price for the requested interval
+        /// Gets or sets opening price for the requested interval
         /// </summary>
         [JsonProperty("open")]
-        public decimal Open;
+        public decimal Open { get; set; }
 
         /// <summary>
-        /// Date for historical data.
+        /// Gets or sets date for historical data.
         /// </summary>
         [JsonProperty("date")]
-        public DateTime Time;
+        public DateTime Time { get; set; }
 
         /// <summary>
-        /// Daily volume.
+        /// Gets or sets daily volume.
         /// </summary>
         [JsonProperty("volume")]
-        public long Volume;
+        public long Volume { get; set; }
     }
 }

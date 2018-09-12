@@ -19,7 +19,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionChains
         /// <summary>
         /// The command
         /// </summary>
-        private TradierOptionChainCommand Command;
+        private readonly TradierOptionChainCommand Command;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierOptionChainRequest"/> class.
@@ -40,15 +40,13 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionChains
         /// <exception cref="ArgumentNullException">commandBuilder</exception>
         public static async Task<List<TradierOptionChain>> GetOptionChainAsync(Func<TradierOptionChainCommand> commandBuilder)
         {
-            if (commandBuilder == null)
-            {
-                throw new ArgumentNullException(nameof(commandBuilder));
-            }
-            var cmd = commandBuilder();
+            var cmd = commandBuilder() ?? throw new ArgumentNullException(nameof(commandBuilder));
+
             if (cmd.ExpiryDateRangeLimit.HasValue && cmd.ExpiryDateRangeLimit >= 1)
             {
                 return await GetMultipleOptionChainForAutoExpiry(cmd);
             }
+
             return await new TradierOptionChainRequest(cmd).GetAsync();
         }
 

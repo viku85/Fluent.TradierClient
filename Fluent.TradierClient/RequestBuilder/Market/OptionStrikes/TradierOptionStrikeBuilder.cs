@@ -11,7 +11,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionStrikes
     /// <seealso cref="IOptionStrikeExpiryBuilder" />
     /// <seealso cref="IDefaultExpiryOptionBuilder" />
     public class TradierOptionStrikeBuilder
-        : Builder<TradierOptionStrikeCommand>, IOptionStrikeExpiryBuilder, IDefaultExpiryOptionBuilder
+        : Builder<TradierOptionStrikeCommand>, IDefaultExpiryOptionBuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierOptionStrikeBuilder"/> class.
@@ -31,7 +31,9 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionStrikes
         /// </summary>
         /// <param name="command">The command.</param>
         protected TradierOptionStrikeBuilder(TradierOptionStrikeCommand command)
-            : base(command) { }
+            : base(command)
+        {
+        }
 
         /// <summary>
         /// Specify limit for Auto expiry date selections.

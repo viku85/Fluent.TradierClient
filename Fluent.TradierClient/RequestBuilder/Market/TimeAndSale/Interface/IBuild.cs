@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale.Interface
+﻿namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale.Interface
 {
     /// <summary>
     /// The default build for Time sales command.
@@ -13,6 +7,5 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale.Interface
     public interface IBuild
         : IBuild<TradierTimeSaleCommand>
     {
-
     }
 }

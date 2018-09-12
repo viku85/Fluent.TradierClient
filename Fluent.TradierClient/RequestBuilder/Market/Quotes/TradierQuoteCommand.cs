@@ -35,6 +35,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.Quotes
             {
                 throw new ArgumentException(nameof(quotes));
             }
+
             Quotes = quotes;
         }
 

@@ -12,6 +12,6 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings.Interfac
         /// </summary>
         /// <param name="intervalOption">The interval option.</param>
         /// <returns>Start date builder.</returns>
-        IIntervalNextOptionBuilder WithInterval(HistoryIntervalOption option);
+        IIntervalNextOptionBuilder WithInterval(HistoryIntervalOption intervalOption);
     }
 }

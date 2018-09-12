@@ -50,8 +50,8 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         /// </summary>
         /// <param name="jToken">The JSON token.</param>
         /// <returns>The list of time series.</returns>
-        protected override List<TradierTimeSeries> Deserialize(JToken jtoken) =>
-                SafeListDeserialize<TradierTimeSeries>(jtoken, "series.data");
+        protected override List<TradierTimeSeries> Deserialize(JToken jToken) =>
+                SafeListDeserialize<TradierTimeSeries>(jToken, "series.data");
 
         /// <summary>
         /// Relative URL to make Tradier request.
@@ -59,8 +59,6 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         /// <returns>Url based on <see cref="Command"/></returns>
         protected override string RelativeUrl()
         {
-            // TODO: validate object
-
             var @params = new Dictionary<string, string>();
 
             if (Command.StartDate.HasValue && Command.StartDate != DateTime.MinValue)
@@ -86,7 +84,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
 
             if (@params.Any())
             {
-                req += ("&" + string.Join("&", @params.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value))));
+                req += "&" + string.Join("&", @params.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
             }
 
             return req;

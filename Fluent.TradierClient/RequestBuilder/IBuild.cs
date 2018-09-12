@@ -4,7 +4,7 @@
     /// Generic implementation of Builder.
     /// </summary>
     /// <typeparam name="TCmd">The type of the command.</typeparam>
-    public interface IBuild<TCmd>
+    public interface IBuild<out TCmd>
     {
         /// <summary>
         /// Builds the new instance of command.

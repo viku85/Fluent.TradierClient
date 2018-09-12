@@ -61,6 +61,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
             {
                 @params.Add("interval", Command.Interval.ToString().ToLower());
             }
+
             if (Command.StartDate.HasValue)
             {
                 @params.Add("start", Command.StartDate.Value.ToString(DateTimeFormats.YearDateFormat));
@@ -69,10 +70,12 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
                     @params.Add("end", Command.EndDate.Value.ToString(DateTimeFormats.YearDateFormat));
                 }
             }
+
             if (@params.Any())
             {
-                relativeUrl += ("&" + string.Join("&", @params.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value))));
+                relativeUrl += "&" + string.Join("&", @params.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
             }
+
             return relativeUrl;
         }
     }

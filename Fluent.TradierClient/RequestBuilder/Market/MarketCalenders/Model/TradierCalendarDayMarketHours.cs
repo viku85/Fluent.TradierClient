@@ -9,15 +9,15 @@ namespace Fluent.TradierClient.RequestBuilder.Market.MarketCalenders.Model
     public class TradierCalendarDayMarketHours
     {
         /// <summary>
-        /// The start time for the premarket/open/postmarket time range.
+        /// Gets or sets the start time for the premarket/open/postmarket time range.
         /// </summary>
         [JsonProperty("start")]
-        public DateTime Start;
+        public DateTime Start { get; set; }
 
         /// <summary>
-        /// The end time for the premarket/open/postmarket time range.
+        /// Gets or sets the end time for the premarket/open/postmarket time range.
         /// </summary>
         [JsonProperty("end")]
-        public DateTime End;
+        public DateTime End { get; set; }
     }
 }

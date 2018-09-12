@@ -30,7 +30,10 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         /// Initializes a new instance of the <see cref="TradierTimeSaleBuilder"/> class.
         /// </summary>
         /// <param name="cmd">The command.</param>
-        protected TradierTimeSaleBuilder(TradierTimeSaleCommand cmd) : base(cmd) { }
+        protected TradierTimeSaleBuilder(TradierTimeSaleCommand cmd)
+            : base(cmd)
+        {
+        }
 
         /// <summary>
         /// Specify End date for timesales.
@@ -44,7 +47,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         /// </summary>
         /// <param name="interval">The interval.</param>
         /// <returns>Composed TimeSale</returns>
-        public IStartDateBuilder WithInterval(TimeSalesInterval interval) => Build(cmd => cmd.Interval = cmd.Interval);
+        public IStartDateBuilder WithInterval(TimeSalesInterval interval) => Build(cmd => cmd.Interval = interval);
 
         /// <summary>
         /// Specify The session conditions.

@@ -39,45 +39,13 @@ namespace Fluent.TradierClient
             {
                 throw new ArgumentException(nameof(baseUrl));
             }
+
             if (IsNullOrEmpty(accessToken))
             {
                 throw new ArgumentNullException(nameof(accessToken));
             }
+
             AccessKey = accessToken;
-        }
-
-        /// <summary>
-        /// Composes the extra settings for Tradier request.
-        /// </summary>
-        /// <param name="client">The client.</param>
-        protected virtual void ComposeHttp(HttpClient client) { }
-
-        /// <summary>
-        /// Deserializes the JSON token for Tradier result.
-        /// </summary>
-        /// <param name="jToken">The JSON token.</param>
-        /// <returns>The <see name="TRes"/>.</returns>
-        protected virtual TRes Deserialize(JToken jToken)
-        {
-            return jToken?.ToObject<TRes>();
-        }
-
-        /// <summary>
-        /// Safely deserialize JSON token to List of <typeparamref name="T"/>.
-        /// </summary>
-        /// <typeparam name="T">Type of the object</typeparam>
-        /// <param name="token">The token.</param>
-        /// <param name="tokenPath">The token path.</param>
-        /// <returns>List of deserialize <typeparamref name="T"/></returns>
-        protected List<T> SafeListDeserialize<T>(JToken token, string tokenPath)
-        {
-            var selectedToken = token?.SelectToken(tokenPath);
-            if (selectedToken == null)
-            {
-                return null;
-            }
-            return selectedToken is JArray ?
-                selectedToken.ToObject<List<T>>() : new List<T>() { selectedToken.ToObject<T>() };
         }
 
         /// <summary>
@@ -118,7 +86,8 @@ namespace Fluent.TradierClient
                 }
                 else
                 {
-                    throw new TradierRequestException("Request failed",
+                    throw new TradierRequestException(
+                        "Request failed",
                         message.RequestMessage.RequestUri,
                         message.ReasonPhrase);
                 }
@@ -126,10 +95,47 @@ namespace Fluent.TradierClient
         }
 
         /// <summary>
+        /// Composes the extra settings for Tradier request.
+        /// </summary>
+        /// <param name="client">The client.</param>
+        protected virtual void ComposeHttp(HttpClient client)
+        {
+        }
+
+        /// <summary>
+        /// Deserializes the JSON token for Tradier result.
+        /// </summary>
+        /// <param name="jToken">The JSON token.</param>
+        /// <returns>The <see name="TRes"/>.</returns>
+        protected virtual TRes Deserialize(JToken jToken)
+        {
+            return jToken?.ToObject<TRes>();
+        }
+
+        /// <summary>
         /// Relative URL to make Tradier request.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>URL to make tradier request.</returns>
         protected abstract string RelativeUrl();
+
+        /// <summary>
+        /// Safely deserialize JSON token to List of <typeparamref name="T"/>.
+        /// </summary>
+        /// <typeparam name="T">Type of the object</typeparam>
+        /// <param name="token">The token.</param>
+        /// <param name="tokenPath">The token path.</param>
+        /// <returns>List of deserialize <typeparamref name="T"/></returns>
+        protected List<T> SafeListDeserialize<T>(JToken token, string tokenPath)
+        {
+            var selectedToken = token?.SelectToken(tokenPath);
+            if (selectedToken == null)
+            {
+                return new List<T>();
+            }
+
+            return selectedToken is JArray ?
+                selectedToken.ToObject<List<T>>() : new List<T>() { selectedToken.ToObject<T>() };
+        }
 
         /// <summary>
         /// Deserializes the specified json string.
@@ -142,6 +148,7 @@ namespace Fluent.TradierClient
             {
                 return default(TRes);
             }
+
             var jObject = JToken.Parse(jsonString);
             return Deserialize(jObject);
         }

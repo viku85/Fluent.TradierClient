@@ -15,7 +15,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionExpirations
         /// <summary>
         /// The command
         /// </summary>
-        private TradierOptionExpirationCommand Command;
+        private readonly TradierOptionExpirationCommand Command;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierOptionExpirationRequest"/> class.
@@ -24,7 +24,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionExpirations
         internal TradierOptionExpirationRequest(TradierOptionExpirationCommand command)
             : base(command?.BaseUrl, command?.AccessKey)
         {
-            Command = new TradierOptionExpirationCommand(command, command.Symbol);
+            Command = new TradierOptionExpirationCommand(command, command?.Symbol);
         }
 
         /// <summary>

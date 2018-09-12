@@ -14,6 +14,6 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale.Interface
         /// </summary>
         /// <param name="startDate">The start date.</param>
         /// <returns>End date builder for time and sales.</returns>
-        IEndDateBuilder WithStartDate(DateTime endDate);
+        IEndDateBuilder WithStartDate(DateTime startDate);
     }
 }

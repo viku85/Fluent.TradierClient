@@ -9,45 +9,45 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale.Model
     public class TradierTimeSeries
     {
         /// <summary>
-        /// The Time
+        /// Gets or sets the Time
         /// </summary>
         [JsonProperty("time")]
-        public DateTime Time;
+        public DateTime Time { get; set; }
 
         /// <summary>
-        /// Last price for the time-series interval
+        /// Gets or sets last price for the time-series interval
         /// </summary>
         [JsonProperty("price")]
-        public decimal Price;
+        public decimal Price { get; set; }
 
         /// <summary>
-        /// Opening price
+        /// Gets or sets opening price
         /// </summary>
         [JsonProperty("open")]
-        public decimal Open;
+        public decimal Open { get; set; }
 
         /// <summary>
-        /// Trading day high
+        /// Gets or sets trading day high
         /// </summary>
         [JsonProperty("high")]
-        public decimal High;
+        public decimal High { get; set; }
 
         /// <summary>
-        /// Trading day low
+        /// Gets or sets trading day low
         /// </summary>
         [JsonProperty("low")]
-        public decimal Low;
+        public decimal Low { get; set; }
 
         /// <summary>
-        /// Closing price
+        /// Gets or sets closing price
         /// </summary>
         [JsonProperty("close")]
-        public decimal Close;
+        public decimal Close { get; set; }
 
         /// <summary>
-        /// Total volume for the time-series interval
+        /// Gets or sets total volume for the time-series interval
         /// </summary>
         [JsonProperty("volume")]
-        public long Volume;
+        public long Volume { get; set; }
     }
 }

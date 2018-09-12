@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Fluent.TradierClient.Exceptions
 {
@@ -6,24 +7,14 @@ namespace Fluent.TradierClient.Exceptions
     /// Tradier request exception.
     /// </summary>
     /// <seealso cref="ApplicationException" />
+    [Serializable]
     public class TradierRequestException
         : ApplicationException
     {
         /// <summary>
-        /// Gets the type of the error.
+        /// The exception details
         /// </summary>
-        /// <value>
-        /// The type of the error.
-        /// </value>
-        public string ErrorType { get; private set; }
-
-        /// <summary>
-        /// Gets the URL.
-        /// </summary>
-        /// <value>
-        /// The URL.
-        /// </value>
-        public Uri Url { get; private set; }
+        public readonly AppExceptionModel ExceptionDetails;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierRequestException"/> class.
@@ -34,8 +25,17 @@ namespace Fluent.TradierClient.Exceptions
         public TradierRequestException(string typeOfError, Uri url, string errorDetails)
             : base(errorDetails)
         {
-            ErrorType = typeOfError;
-            Url = url;
+            ExceptionDetails = new AppExceptionModel(typeOfError, url);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="TradierRequestException"/> class.
+        /// </summary>
+        /// <param name="info">The object that holds the serialized object data.</param>
+        /// <param name="context">The contextual information about the source or destination.</param>
+        protected TradierRequestException(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
         }
     }
 }

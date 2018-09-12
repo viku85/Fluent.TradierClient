@@ -14,7 +14,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.MarketCalenders
     /// <seealso cref="IMonthBuilder" />
     /// <seealso cref="IYearBuilder" />
     public class TradierMarketCalenderBuilder
-        : Builder<TradierMarketCalenderCommand>, IBuild, IDefaultCalendarBuilder, IMonthBuilder, IYearBuilder
+        : Builder<TradierMarketCalenderCommand>, IDefaultCalendarBuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierMarketCalenderBuilder"/> class.

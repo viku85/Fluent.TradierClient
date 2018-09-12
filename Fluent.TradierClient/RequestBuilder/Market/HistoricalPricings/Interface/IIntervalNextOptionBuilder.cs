@@ -9,6 +9,5 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings.Interfac
     public interface IIntervalNextOptionBuilder
         : IStartDateBuilder, IBuild<TradierHistoricalPricingCommand>
     {
-
     }
 }

@@ -16,7 +16,9 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
         /// </summary>
         /// <param name="token">The token.</param>
         internal TradierHistoricalPricingCommand(AuthToken token)
-            : base(token?.BaseUrl, token?.AccessKey) { }
+            : base(token?.BaseUrl, token?.AccessKey)
+        {
+        }
 
         /// <summary>
         /// Gets the end date for history range .
@@ -43,7 +45,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
         public DateTime? StartDate { get; internal set; }
 
         /// <summary>
-        /// The requested symbol.
+        /// Gets the requested symbol.
         /// </summary>
         /// <value>
         /// The requested symbol.

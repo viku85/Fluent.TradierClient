@@ -18,7 +18,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.MarketCalenders
         /// <summary>
         /// The command
         /// </summary>
-        private TradierMarketCalenderCommand Command;
+        private readonly TradierMarketCalenderCommand Command;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierMarketCalenderRequest"/> class.
@@ -59,6 +59,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.MarketCalenders
             {
                 @params.Add("month", ((int)Command.Month.Value).ToString());
             }
+
             if (Command.Year.HasValue)
             {
                 @params.Add("year", Command.Year.Value.ToString());
@@ -66,7 +67,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.MarketCalenders
 
             if (@params.Any())
             {
-                relativeUrl += ("?" + string.Join("&", @params.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value))));
+                relativeUrl += "?" + string.Join("&", @params.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
             }
 
             return relativeUrl;

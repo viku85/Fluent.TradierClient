@@ -16,7 +16,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
     /// <seealso cref="IEndDateNextBuilder" />
     /// <seealso cref="IBuild" />
     public class TradierHistoricalPricingBuilder
-        : Builder<TradierHistoricalPricingCommand>, IDefaultOptionBuilder, IIntervalBuilder, IStartDateBuilder, IIntervalNextOptionBuilder, IEndDateNextBuilder, IBuild
+        : Builder<TradierHistoricalPricingCommand>, IDefaultOptionBuilder, IIntervalNextOptionBuilder, IEndDateNextBuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierHistoricalPricingBuilder"/> class.
@@ -36,7 +36,9 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
         /// </summary>
         /// <param name="cmd">The command.</param>
         private TradierHistoricalPricingBuilder(TradierHistoricalPricingCommand cmd)
-              : base(cmd) { }
+              : base(cmd)
+        {
+        }
 
         /// <summary>
         /// Specifies end date for history range.
@@ -66,7 +68,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.HistoricalPricings
         /// Builds the specified command composer.
         /// </summary>
         /// <param name="commandComposer">The command composer.</param>
-        /// <returns></returns>
+        /// <returns>Builder after composing given values.</returns>
         protected TradierHistoricalPricingBuilder Build(Action<TradierHistoricalPricingCommand> commandComposer) =>
            new TradierHistoricalPricingBuilder(Clone(commandComposer));
 

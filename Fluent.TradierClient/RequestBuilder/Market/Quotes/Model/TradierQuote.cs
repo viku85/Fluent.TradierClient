@@ -8,197 +8,202 @@ namespace Fluent.TradierClient.RequestBuilder.Market.Quotes.Model
     public class TradierQuote
     {
         /// <summary>
-        /// The Opening price.
+        /// Gets or sets the Opening price.
         /// </summary>
         [JsonProperty("open")]
-        public decimal? Open = 0;
+        public decimal? Open { get; set; } = 0;
 
         /// <summary>
-        /// The 52 week high.
+        /// Gets or sets the 52 week high.
         /// </summary>
         [JsonProperty("week_52_high")]
-        public decimal Week52High = 0;
+        public decimal Week52High { get; set; }
 
         /// <summary>
-        /// The Current ask.
+        /// Gets or sets the Current ask.
         /// </summary>
         [JsonProperty("ask")]
         public decimal Ask { get; set; }
 
         /// <summary>
-        /// The Date and time of current ask.
+        /// Gets or sets the Date and time of current ask.
         /// </summary>
         [JsonProperty("ask_date")]
         public long AskDateUnix { get; set; }
 
         /// <summary>
-        /// The Exchange of ask.
+        /// Gets or sets the Exchange of ask.
         /// </summary>
         [JsonProperty("askexch")]
         public string AskExchange { get; set; }
 
         /// <summary>
-        /// The Size of ask.
+        /// Gets or sets the Size of ask.
         /// </summary>
         [JsonProperty("asksize")]
         public decimal AskSize { get; set; }
 
         /// <summary>
-        /// The Average daily volume.
+        /// Gets or sets the Average daily volume.
         /// </summary>
         [JsonProperty("average_volume")]
         public decimal AverageVolume { get; set; }
 
         /// <summary>
-        /// The Current bid.
+        /// Gets or sets the Current bid.
         /// </summary>
         [JsonProperty("bid")]
         public decimal Bid { get; set; }
 
         /// <summary>
-        /// The Date and time of current bid.
+        /// Gets or sets the Date and time of current bid.
         /// </summary>
         [JsonProperty("bid_date")]
         public long BidDateUnix { get; set; }
 
         /// <summary>
-        /// The Size of bid.
+        /// Gets or sets the Size of bid.
         /// </summary>
         [JsonProperty("bidsize")]
         public decimal BidSize { get; set; }
 
         /// <summary>
-        /// The Exchange of bid.
+        /// Gets or sets the Exchange of bid.
         /// </summary>
         [JsonProperty("bidexch")]
         public string BigExchange { get; set; }
 
         /// <summary>
-        /// The Daily net change.
+        /// Gets or sets the Daily net change.
         /// </summary>
         [JsonProperty("change")]
         public decimal Change { get; set; }
 
         /// <summary>
-        /// The Closing price.
+        /// Gets or sets the Closing price.
         /// </summary>
         [JsonProperty("close")]
         public decimal? Close { get; set; }
 
         /// <summary>
-        /// The Symbol description.
+        /// Gets or sets the Symbol description.
         /// </summary>
         [JsonProperty("description")]
         public string Description { get; set; }
 
         /// <summary>
-        /// The Quote Exchange.
+        /// Gets or sets the Quote Exchange.
         /// </summary>
         [JsonProperty("exch")]
         public string Exchange { get; set; }
 
         /// <summary>
-        /// The Trading day high.
+        /// Gets or sets the Trading day high.
         /// </summary>
         [JsonProperty("high")]
         public decimal? High { get; set; }
 
-        /// Quote Last Price
+        /// <summary>
+        /// Gets or sets the last price.
+        /// </summary>
+        /// <value>
+        /// The last price.
+        /// </value>
         [JsonProperty("last")]
         public decimal Last { get; set; }
 
         /// <summary>
-        /// The Last incremental volume.
+        /// Gets or sets the Last incremental volume.
         /// </summary>
         [JsonProperty("last_volume")]
         public decimal LastVolume { get; set; }
 
         /// <summary>
-        /// TheTrading day low
+        /// Gets or sets theTrading day low
         /// </summary>
         [JsonProperty("low")]
         public decimal? Low { get; set; }
 
         /// <summary>
-        /// The Size of the contract in shares.
+        /// Gets or sets the Size of the contract in shares.
         /// </summary>
         [JsonProperty("contract_size")]
         public int OptionsContractSize { get; set; }
 
         /// <summary>
-        /// The Date of expiration.
+        /// Gets or sets the Date of expiration.
         /// </summary>
         [JsonProperty("expiration_date")]
         public long OptionsExpirationDate { get; set; }
 
         /// <summary>
-        /// The Type of expiration.
+        /// Gets or sets the Type of expiration.
         /// </summary>
         [JsonProperty("expiration_type")]
         public TradierOptionExpirationType OptionsExpirationType { get; set; }
 
         /// <summary>
-        /// The Open interest.
+        /// Gets or sets the Open interest.
         /// </summary>
         [JsonProperty("open_interest")]
         public long OptionsOpenInterest { get; set; }
 
         /// <summary>
-        /// The Type of option.
+        /// Gets or sets the Type of option.
         /// </summary>
         [JsonProperty("option_type")]
         public TradierOptionType OptionsOptionType { get; set; }
 
         /// <summary>
-        /// The Strike price.
+        /// Gets or sets the Strike price.
         /// </summary>
         [JsonProperty("strike")]
         public decimal OptionsStrike { get; set; }
 
         /// <summary>
-        /// The Underlying symbol.
+        /// Gets or sets the Underlying symbol.
         /// </summary>
         [JsonProperty("underlying")]
         public string OptionsUnderlyingAsset { get; set; }
 
         /// <summary>
-        /// The Daily net change.
+        /// Gets or sets the Daily net change.
         /// </summary>
         [JsonProperty("change_percentage")]
         public decimal PercentageChange { get; set; }
 
         /// <summary>
-        /// The Previous closing price.
+        /// Gets or sets the Previous closing price.
         /// </summary>
         [JsonProperty("prevclose")]
         public decimal PreviousClose { get; set; }
 
         /// <summary>
-        /// The Quote Symbol.
+        /// Gets or sets the Quote Symbol.
         /// </summary>
         [JsonProperty("symbol")]
         public string Symbol { get; set; }
 
         /// <summary>
-        /// The Date and time of last trade.
+        /// Gets or sets the Date and time of last trade.
         /// </summary>
         [JsonProperty("trade_date")]
         public long TradeDateUnix { get; set; }
 
         /// <summary>
-        /// The Type of security.
+        /// Gets or sets the Type of security.
         /// </summary>
         [JsonProperty("type")]
         public string Type { get; set; }
 
         /// <summary>
-        /// The Volume for the day.
+        /// Gets or sets the Volume for the day.
         /// </summary>
         [JsonProperty("volume")]
         public decimal Volume { get; set; }
 
         /// <summary>
-        /// The 52 week low.
+        /// Gets or sets the 52 week low.
         /// </summary>
         [JsonProperty("week_52_low")]
         public decimal Week52Low { get; set; }

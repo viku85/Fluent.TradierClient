@@ -7,7 +7,7 @@
     /// <seealso cref="IMonthBuilder" />
     /// <seealso cref="IYearBuilder" />
     public interface IDefaultCalendarBuilder
-        : IBuild, IMonthBuilder, IYearBuilder
+        : IMonthBuilder, IYearBuilder
     {
     }
 }

@@ -72,7 +72,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.SymbolLookup
 
             if (parms.Any())
             {
-                relativeUrl += ("?" + string.Join("&", parms.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value))));
+                relativeUrl += "?" + string.Join("&", parms.Select(kvp => string.Format("{0}={1}", kvp.Key, kvp.Value)));
             }
 
             return relativeUrl;

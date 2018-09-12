@@ -11,7 +11,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionChains
     /// <seealso cref="IExpiryBuilder" />
     /// <seealso cref="IDefaultBuilder" />
     public class TradierOptionChainBuilder
-        : Builder<TradierOptionChainCommand>, IExpiryBuilder, IDefaultBuilder
+        : Builder<TradierOptionChainCommand>, IDefaultBuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierOptionChainBuilder"/> class.
@@ -24,7 +24,9 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionChains
         }
 
         private TradierOptionChainBuilder(TradierOptionChainCommand cmd)
-            : base(cmd) { }
+            : base(cmd)
+        {
+        }
 
         /// <summary>
         /// Specify auto expiry limit.
@@ -36,9 +38,9 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionChains
         /// <summary>
         /// Specify expiration date for option chain.
         /// </summary>
-        /// <param name="dateTime">The expiration date.</param>
+        /// <param name="expiryDate">The expiration date.</param>
         /// <returns>Option chain builder.</returns>
-        public IBuild<TradierOptionChainCommand> WithExpirationDate(DateTime expiryTime) => Build(cmd => cmd.Expiry = expiryTime);
+        public IBuild<TradierOptionChainCommand> WithExpirationDate(DateTime expiryDate) => Build(cmd => cmd.Expiry = expiryDate);
 
         /// <summary>
         /// Builds the specified command composer.
@@ -60,12 +62,5 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionChains
             {
                 ExpiryDateRangeLimit = Command.ExpiryDateRangeLimit
             };
-
-        /// <summary>
-        /// Specifies symbol for option chain.
-        /// </summary>
-        /// <param name="symbol">The symbol.</param>
-        /// <returns>Expiry builder.</returns>
-        private IExpiryBuilder WithSymbol(string symbol) => Build(cmd => cmd.Symbol = symbol);
     }
 }

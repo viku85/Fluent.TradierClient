@@ -9,39 +9,39 @@ namespace Fluent.TradierClient.RequestBuilder.Market.InterDayStatues.Model
     public class TradierInterdayStatus
     {
         /// <summary>
-        /// Market date.
+        /// Gets or sets market date.
         /// </summary>
         [JsonProperty("date")]
-        public DateTime Date;
+        public DateTime Date { get; set; }
 
         /// <summary>
-        /// Text description of market status.
+        /// Gets or sets text description of market status.
         /// </summary>
         [JsonProperty("description")]
-        public string Description;
+        public string Description { get; set; }
 
         /// <summary>
-        /// Time when next market state change will occur.
+        /// Gets or sets time when next market state change will occur.
         /// </summary>
         [JsonProperty("next_change")]
-        public DateTime NextChange;
+        public DateTime NextChange { get; set; }
 
         /// <summary>
-        /// The Next market state.
+        /// Gets or sets the Next market state.
         /// </summary>
         [JsonProperty("next_state")]
-        public string NextState;
+        public string NextState { get; set; }
 
         /// <summary>
-        /// Current market state.
+        /// Gets or sets current market state.
         /// </summary>
         [JsonProperty("state")]
-        public string State;
+        public string State { get; set; }
 
         /// <summary>
-        /// The Current timestamp represented as a Unix epoch.
+        /// Gets or sets the Current timestamp represented as a Unix epoch.
         /// </summary>
         [JsonProperty("timestamp")]
-        public long TimeStamp;
+        public long TimeStamp { get; set; }
     }
 }

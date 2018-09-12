@@ -12,9 +12,8 @@ namespace Fluent.TradierClient.RequestBuilder.Market.SymbolLookup
     /// <seealso cref="IExchangeFilterBuilder" />
     /// <seealso cref="ISymbolQueryBuilder" />
     /// <seealso cref="ITypeFilterBuilder" />
-    /// <seealso cref="Builder{TradierSymbolLookupCommand}" />
     public class TradierSymbolLookupBuilder
-        : Builder<TradierSymbolLookupCommand>, IDefaultSymbolLookupBuilder, IExchangeFilterBuilder, ISymbolQueryBuilder, ITypeFilterBuilder
+        : Builder<TradierSymbolLookupCommand>, IDefaultSymbolLookupBuilder
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="TradierSymbolLookupBuilder" /> class.
@@ -26,13 +25,15 @@ namespace Fluent.TradierClient.RequestBuilder.Market.SymbolLookup
         }
 
         protected TradierSymbolLookupBuilder(TradierSymbolLookupCommand cmd)
-            : base(cmd) { }
+            : base(cmd)
+        {
+        }
 
         /// <summary>
         /// Specify list of exchange codes to query.
         /// </summary>
         /// <param name="exchangeOption">The exchange option.</param>
-        /// <returns></returns>
+        /// <returns>Builder after setting exchange option</returns>
         public TradierSymbolLookupBuilder WithExchangeFilter(params string[] exchangeOption) =>
             BuildNew(cmd => cmd.Exchanges.AddRange(exchangeOption));
 
@@ -40,14 +41,14 @@ namespace Fluent.TradierClient.RequestBuilder.Market.SymbolLookup
         /// Specify the symbol to query.
         /// </summary>
         /// <param name="symbolQuery">The symbol query.</param>
-        /// <returns></returns>
+        /// <returns>Builder after setting symbol.</returns>
         public TradierSymbolLookupBuilder WithSymbolQuery(string symbolQuery) => BuildNew(cmd => cmd.Query = symbolQuery);
 
         /// <summary>
         /// Specify list of security types to query.
         /// </summary>
         /// <param name="typeOptions">The type options.</param>
-        /// <returns></returns>
+        /// <returns>Builder after setting type options.</returns>
         public TradierSymbolLookupBuilder WithTypeFilter(params string[] typeOptions) => BuildNew(cmd => cmd.Types.AddRange(typeOptions));
 
         /// <summary>
@@ -71,14 +72,16 @@ namespace Fluent.TradierClient.RequestBuilder.Market.SymbolLookup
         /// <param name="commandComposer">The command composer.</param>
         /// <param name="condition">The condition.</param>
         /// <returns>Instance of <see cref="TradierSymbolLookupBuilder"/>.</returns>
-        private TradierSymbolLookupBuilder BuildNew(Action<TradierSymbolLookupCommand> commandComposer,
-                                            Func<TradierSymbolLookupCommand, bool> condition = null)
+        private TradierSymbolLookupBuilder BuildNew(
+                        Action<TradierSymbolLookupCommand> commandComposer,
+                        Func<TradierSymbolLookupCommand, bool> condition = null)
         {
             var command = Clone(commandComposer);
             if (condition == null || condition(command))
             {
                 return new TradierSymbolLookupBuilder(command);
             }
+
             return this;
         }
     }

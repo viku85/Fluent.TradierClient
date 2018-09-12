@@ -35,19 +35,16 @@ namespace Fluent.TradierClient.RequestBuilder.Market.OptionStrikes
         /// Gets the option strikes asynchronous.
         /// </summary>
         /// <param name="commandBuilder">The command builder.</param>
-        /// <returns></returns>
+        /// <returns>List of option strikes.</returns>
         /// <exception cref="ArgumentNullException">commandBuilder</exception>
         public static async Task<List<decimal>> GetOptionStrikesAsync(Func<TradierOptionStrikeCommand> commandBuilder)
         {
-            if (commandBuilder == null)
-            {
-                throw new ArgumentNullException(nameof(commandBuilder));
-            }
-            var cmd = commandBuilder();
+            var cmd = commandBuilder?.Invoke() ?? throw new ArgumentNullException(nameof(commandBuilder));
             if (cmd.ExpiryDateRangeLimit.HasValue && cmd.ExpiryDateRangeLimit >= 1)
             {
                 return await MultipleOptionChainForAutoExpiryAsync(cmd);
             }
+
             return await new TradierOptionStrikeRequest(commandBuilder()).GetAsync();
         }
 

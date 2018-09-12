@@ -15,11 +15,6 @@ namespace Fluent.TradierClient.RequestBuilder
         private const string Live = "https://api.tradier.com/v1/";
 
         /// <summary>
-        /// The streaming Uri
-        /// </summary>
-        private const string Streaming = "https://stream.tradier.com/v1/";
-
-        /// <summary>
         /// The sandbox Uri
         /// </summary>
         private const string Test = "https://sandbox.tradier.com/v1/";
@@ -60,7 +55,7 @@ namespace Fluent.TradierClient.RequestBuilder
         /// <summary>
         /// Market request builder.
         /// </summary>
-        /// <returns>Market request builder.</returns>
+        /// <returns>Market builder.</returns>
         public TradierMarketBuilder ForMarket() => new TradierMarketBuilder(AuthToken);
 
         /// <summary>
@@ -89,7 +84,7 @@ namespace Fluent.TradierClient.RequestBuilder
         /// </summary>
         /// <param name="url">The URL.</param>
         /// <param name="accessKey">The access key.</param>
-        /// <returns>Builds the authentication token.</returns>
+        /// <returns>The Tradier request builder.</returns>
         private TradierBuilder BuildAuthToken(string url, string accessKey) =>
             new TradierBuilder
             {

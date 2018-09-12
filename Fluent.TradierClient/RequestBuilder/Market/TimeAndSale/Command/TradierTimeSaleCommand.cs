@@ -15,10 +15,12 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         /// </summary>
         /// <param name="model">The model.</param>
         internal TradierTimeSaleCommand(AuthToken model)
-            : base(model?.BaseUrl, model?.AccessKey) { }
+            : base(model?.BaseUrl, model?.AccessKey)
+        {
+        }
 
         /// <summary>
-        /// Gets or sets the symbol.
+        /// Gets the symbol.
         /// </summary>
         /// <value>
         /// The symbol.
@@ -26,7 +28,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         public string Symbol { get; internal set; }
 
         /// <summary>
-        /// Gets or sets the interval of time for timesales pricing.
+        /// Gets the interval of time for timesales pricing.
         /// </summary>
         /// <value>
         /// The interval of time for timesales pricing.
@@ -34,7 +36,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         public TimeSalesInterval? Interval { get; internal set; }
 
         /// <summary>
-        /// Gets or sets the start datetime for timesales range.
+        /// Gets the start datetime for timesales range.
         /// </summary>
         /// <value>
         /// The start datetime for timesales range.
@@ -42,7 +44,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         public DateTime? StartDate { get; internal set; }
 
         /// <summary>
-        /// Gets or sets the end datetime for timesales range.
+        /// Gets the end datetime for timesales range.
         /// </summary>
         /// <value>
         /// The end datetime for timesales range.
@@ -50,7 +52,7 @@ namespace Fluent.TradierClient.RequestBuilder.Market.TimeAndSale
         public DateTime? EndDate { get; internal set; }
 
         /// <summary>
-        /// Gets or sets the session conditions to requetst data for.
+        /// Gets the session conditions to request data from Tradier.
         /// </summary>
         /// <value>
         /// The session conditions to requetst data for.

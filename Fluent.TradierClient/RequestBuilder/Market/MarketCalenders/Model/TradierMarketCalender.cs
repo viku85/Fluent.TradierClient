@@ -9,39 +9,39 @@ namespace Fluent.TradierClient.RequestBuilder.Market.MarketCalenders.Model
     public class TradierMarketCalender
     {
         /// <summary>
-        /// The Calendar date.
+        /// Gets or sets the Calendar date.
         /// </summary>
         [JsonProperty("date")]
-        public DateTime Date;
+        public DateTime Date { get; set; }
 
         /// <summary>
-        /// A textual description of the market status (i.e., 'Market is Closed').
+        /// Gets or sets a textual description of the market status (i.e., 'Market is Closed').
         /// </summary>
         [JsonProperty("description")]
-        public string Description;
+        public string Description { get; set; }
 
         /// <summary>
-        /// A container node for open hours (only returned on days when market is open).
+        /// Gets or sets a container node for open hours (only returned on days when market is open).
         /// </summary>
         [JsonProperty("open")]
-        public TradierCalendarDayMarketHours Open;
+        public TradierCalendarDayMarketHours Open { get; set; }
 
         /// <summary>
-        /// A container node for postmarket hours (only returned on days when market is open).
+        /// Gets or sets a container node for postmarket hours (only returned on days when market is open).
         /// </summary>
         [JsonProperty("postmarket")]
-        public TradierCalendarDayMarketHours Postmarket;
+        public TradierCalendarDayMarketHours Postmarket { get; set; }
 
         /// <summary>
-        /// A container node for premarket hours (only returned on days when market is open).
+        /// Gets or sets a container node for premarket hours (only returned on days when market is open).
         /// </summary>
         [JsonProperty("premarket")]
-        public TradierCalendarDayMarketHours Premarket;
+        public TradierCalendarDayMarketHours Premarket { get; set; }
 
         /// <summary>
-        /// The status of the market on the calendar day (one of: open, closed or holiday).
+        /// Gets or sets the status of the market on the calendar day (one of: open, closed or holiday).
         /// </summary>
         [JsonProperty("status")]
-        public string Status;
+        public string Status { get; set; }
     }
 }

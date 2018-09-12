@@ -30,7 +30,6 @@ namespace Fluent.TradierClient.RequestBuilder.Market.StreamSession
         public static async Task<TradierStreamSessionResult> CreateSessionAsync(Func<TradierStreamSessionCommand> commandBuilder) =>
             await new TradierStreamSessionRequest(commandBuilder?.Invoke()).GetAsync();
 
-
         /// <summary>
         /// Deserializes the JSON token for Tradier result.
         /// </summary>
