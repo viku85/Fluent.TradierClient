@@ -9,14 +9,16 @@ namespace Fluent.TradierClient.Exceptions
     public class AppExceptionModel
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AppExceptionModel"/> class.
+        /// Initializes a new instance of the <see cref="AppExceptionModel" /> class.
         /// </summary>
         /// <param name="typeOfError">The type of error.</param>
         /// <param name="url">The URL.</param>
-        public AppExceptionModel(string typeOfError, Uri url)
+        /// <param name="errorDetails">The error details.</param>
+        public AppExceptionModel(string typeOfError, Uri url, string errorDetails)
         {
             ErrorType = typeOfError;
             Url = url;
+            Message = errorDetails;
         }
 
         /// <summary>

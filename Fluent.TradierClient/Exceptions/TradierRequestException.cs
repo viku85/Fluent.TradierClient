@@ -25,7 +25,7 @@ namespace Fluent.TradierClient.Exceptions
         public TradierRequestException(string typeOfError, Uri url, string errorDetails)
             : base(errorDetails)
         {
-            ExceptionDetails = new AppExceptionModel(typeOfError, url);
+            ExceptionDetails = new AppExceptionModel(typeOfError, url, errorDetails);
         }
 
         /// <summary>
